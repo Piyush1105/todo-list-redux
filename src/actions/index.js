@@ -6,7 +6,7 @@ import {
   CHECKEDALL_TODO,
 } from "./../constant";
 
-export const addTodo = (data, dateTime, checked) => {
+export const addTodo = (data, dateTime = 0, checked) => {
   return {
     type: ADD_TODO,
     payload: {

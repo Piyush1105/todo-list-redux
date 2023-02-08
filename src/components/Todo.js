@@ -63,10 +63,10 @@ const Todo = () => {
               <div className="showItems">
                 <button
                   className="btn effect04"
-                  data-sm-link-text="Check All List"
+                  data-sm-link-text="Complete All"
                   onClick={() => checkAndRemoveAll()}
                 >
-                  <span>Check All List</span>
+                  <span>Complete All</span>
                 </button>
               </div>
             ) : null}
@@ -103,7 +103,7 @@ const Todo = () => {
                       >
                         {ele.data}
                       </h3>
-                      {ele.dateTime.length !== 0 ? (
+                      {ele.dateTime.length > 0 ? (
                         <h3>
                           Deadline:{" "}
                           {dateTimeFormat.format(
