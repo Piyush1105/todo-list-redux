@@ -17,6 +17,20 @@ const Todo = () => {
   const list = useSelector((state) => state.reducer.list);
   const dispatch = useDispatch();
 
+  const checkAndRemove = (ele, event) => {
+    dispatch(checkedList(ele, event));
+    setTimeout(() => {
+      dispatch(deleteTodo(ele));
+    }, 3000);
+  };
+
+  const checkAndRemoveAll = () => {
+    dispatch(checkedAllTodo());
+    setTimeout(() => {
+      dispatch(removeTodo());
+    }, 3000);
+  };
+
   return (
     <>
       <div className="main-div">
@@ -34,24 +48,28 @@ const Todo = () => {
                 <span>Add Items</span>
               </button>
             </div>
-            <div className="showItems">
-              <button
-                className="btn effect04"
-                data-sm-link-text="Remove All"
-                onClick={() => dispatch(removeTodo())}
-              >
-                <span>Remove All</span>
-              </button>
-            </div>
-            <div className="showItems">
-              <button
-                className="btn effect04"
-                data-sm-link-text="Check All List"
-                onClick={() => dispatch(checkedAllTodo())}
-              >
-                <span>Check All List</span>
-              </button>
-            </div>
+            {list.length !== 0 ? (
+              <div className="showItems">
+                <button
+                  className="btn effect04"
+                  data-sm-link-text="Remove All"
+                  onClick={() => dispatch(removeTodo())}
+                >
+                  <span>Remove All</span>
+                </button>
+              </div>
+            ) : null}
+            {list.length > 1 ? (
+              <div className="showItems">
+                <button
+                  className="btn effect04"
+                  data-sm-link-text="Check All List"
+                  onClick={() => checkAndRemoveAll()}
+                >
+                  <span>Check All List</span>
+                </button>
+              </div>
+            ) : null}
           </div>
           <AddModal
             open={modalOpenClose}
@@ -68,8 +86,11 @@ const Todo = () => {
                     <Checkbox
                       sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
                       checked={ele.checked}
+                      // onChange={(event) =>
+                      //   dispatch(checkedList(ele.id, event.target.checked))
+                      // }
                       onChange={(event) =>
-                        dispatch(checkedList(ele.id, event.target.checked))
+                        checkAndRemove(ele.id, event.target.checked)
                       }
                     />
                     <div className="listData-flex">
@@ -82,10 +103,14 @@ const Todo = () => {
                       >
                         {ele.data}
                       </h3>
-                      <h3>
-                        Deadline:{" "}
-                        {dateTimeFormat.format("dddd, MMMM D, YYYY__ hh:mm A")}
-                      </h3>
+                      {ele.dateTime.length !== 0 ? (
+                        <h3>
+                          Deadline:{" "}
+                          {dateTimeFormat.format(
+                            "dddd, MMMM D, YYYY till hh:mm A"
+                          )}
+                        </h3>
+                      ) : null}
                     </div>
                   </div>
                   <i
@@ -104,17 +129,3 @@ const Todo = () => {
 };
 
 export default Todo;
-
-/* <input
-              type="text"
-              placeholder="Add items...."
-              value={inputData}
-              onChange={(event) => setInputData(event.target.value)}
-            />
-            <i
-              className="fa fa-plus add-btn"
-              title="Add Item"
-              onClick={() =>
-                dispatch(addTodo(inputData, checked), setInputData(""))
-              }
-            /> */
