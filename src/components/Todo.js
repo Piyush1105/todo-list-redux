@@ -1,4 +1,6 @@
 import { Checkbox } from "@mui/material";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -39,7 +41,7 @@ const Todo = () => {
             <figcaption>ToDo List Using Redux</figcaption>
           </figure>
           <div className="btn-row">
-            <div className="showItems">
+            <div className="showItems btn-margin">
               <button
                 className="btn effect04"
                 data-sm-link-text="Add Items"
@@ -49,7 +51,7 @@ const Todo = () => {
               </button>
             </div>
             {list.length !== 0 ? (
-              <div className="showItems">
+              <div className="showItems btn-margin">
                 <button
                   className="btn effect04"
                   data-sm-link-text="Remove All"
@@ -60,7 +62,7 @@ const Todo = () => {
               </div>
             ) : null}
             {list.length > 1 ? (
-              <div className="showItems">
+              <div className="showItems btn-margin">
                 <button
                   className="btn effect04"
                   data-sm-link-text="Complete All"
@@ -86,9 +88,6 @@ const Todo = () => {
                     <Checkbox
                       sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
                       checked={ele.checked}
-                      // onChange={(event) =>
-                      //   dispatch(checkedList(ele.id, event.target.checked))
-                      // }
                       onChange={(event) =>
                         checkAndRemove(ele.id, event.target.checked)
                       }
@@ -101,6 +100,9 @@ const Todo = () => {
                             : { textDecoration: "none" }
                         }
                       >
+                        {/* {ele.data.length > 35
+                          ? ele.data.slice(0, 35).concat("...")
+                          : ele.data} */}
                         {ele.data}
                       </h3>
                       {ele.dateTime.length > 0 ? (

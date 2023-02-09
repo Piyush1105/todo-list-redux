@@ -13,22 +13,11 @@ html {
 
 .main-div {
   min-height: 100vh;
-  /* background: #060822; */
-  background: #8e2de2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #4a00e0,
-    #8e2de2
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #4a00e0,
-    #8e2de2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #8e2de2;
+  background: -webkit-linear-gradient(to right, #4a00e0, #8e2de2);
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 
 .child-div {
@@ -76,35 +65,10 @@ label {
   background-image: none;
 }
 
-.input {
-  /* display: block; */
-  min-width: 40rem;
-  height: 3.4rem;
-  padding: 2rem 1.2rem;
-  font-size: 1.8rem;
-  line-height: 1.42857143;
-  color: rgb(58, 57, 57);
-  background-color: #fff;
-  background-image: none;
-  border: 0.1rem solid #ccc;
-  border-radius: 0.4rem;
-  -webkit-box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
-  box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-
 input,
 input:focus,
 input:active,
 input:active:focus {
-  border: none;
-  padding: 2.3rem 1.5rem;
-  outline: none;
-}
-.input,
-.input:focus,
-.input:active,
-.input:active:focus {
   border: none;
   padding: 2.3rem 1.5rem;
   outline: none;
@@ -116,26 +80,10 @@ input {
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-.input {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
 
 input:focus {
   -webkit-box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
-}
-.input:focus {
-  -webkit-box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
-}
-
-.todo-btn {
-  width: 5rem;
-  display: flex;
-  justify-content: space-around;
 }
 
 .fa {
@@ -181,9 +129,7 @@ input:focus {
   margin-left: 1rem;
   min-width: 40rem;
   word-break: break-word;
-  /* background: rgb(85, 41, 220); */
-  background: #c8caff; /* fallback for old browsers */
-
+  background: #c8caff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -201,9 +147,7 @@ input:focus {
   font-weight: 600;
 }
 
-.fa-trash-alt,
-.fa-edit {
-  /* margin-left: -2.5rem; */
+.fa-trash-alt {
   cursor: pointer;
   pointer-events: auto;
   z-index: 10;
@@ -213,20 +157,8 @@ input:focus {
   font-size: 2rem;
 }
 
-.addItems .fa-edit {
-  color: rgb(47, 214, 122);
-}
-
-.fa-edit {
-  margin-left: -3.5rem;
-}
-
 .eachItem:hover .fa-trash-alt {
   color: rgb(214, 47, 61);
-}
-
-.eachItem:hover .fa-edit {
-  color: rgb(100, 214, 47);
 }
 
 .eachItem:hover h3 {
@@ -248,6 +180,11 @@ input:focus {
 
 .btn:hover {
   text-decoration: none;
+}
+
+.btn-margin {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .effect04 {
@@ -295,7 +232,7 @@ input:focus {
 
 .btn-row {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 500px;
 }
 
@@ -303,17 +240,4 @@ input:focus {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-}
-
-.modalStyle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 42rem;
-  background-color: violet;
-  border-radius: 20px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
 }
