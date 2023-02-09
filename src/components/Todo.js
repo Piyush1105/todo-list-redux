@@ -1,6 +1,5 @@
 import { Checkbox } from "@mui/material";
 import "react-tooltip/dist/react-tooltip.css";
-import { Tooltip } from "react-tooltip";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {

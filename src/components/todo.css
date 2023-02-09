@@ -13,6 +13,7 @@ html {
 
 .main-div {
   min-height: 100vh;
+  min-width: 100vw;
   background: #8e2de2;
   background: -webkit-linear-gradient(to right, #4a00e0, #8e2de2);
   background: linear-gradient(to right, #4a00e0, #8e2de2);
@@ -126,7 +127,7 @@ input:focus {
   padding: 1.2rem 1rem;
   border-radius: 0.5rem;
   margin-bottom: 0.7rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   min-width: 40rem;
   word-break: break-word;
   background: #c8caff;
@@ -239,5 +240,49 @@ input:focus {
 .listData-flex {
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 600px) {
+  .addItems {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .btn-row {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .btn-margin {
+    margin-top: 1rem;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
+  .eachItem {
+    padding: 0.5rem 0.4rem;
+    min-width: 35rem;
+  }
+  .showItems .eachItem h3 {
+    font-size: 1.3rem;
+  }
+
+  input {
+    min-width: 24rem;
+    font-size: 1.2rem;
+  }
+  .addList-btn {
+    max-width: 30rem;
+  }
+  .css-oketjj {
+    max-width: 30rem !important;
+    min-width: 29rem !important;
+  }
+  .css-1m9pwf3 {
+    width: 50px;
+  }
 }

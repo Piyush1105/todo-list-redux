@@ -22,49 +22,49 @@ const AddModal = (props) => {
   const checked = false;
 
   return (
-    <div className="addItems">
-      <Modal open={open} onClose={onClose}>
-        <Box sx={style}>
-          <form>
+    // <div>
+    <Modal className="addItems" open={open} onClose={onClose}>
+      <Box sx={style}>
+        <form>
+          <input
+            type="text"
+            placeholder="Add items...."
+            value={inputData}
+            required
+            onChange={(event) => setInputData(event.target.value)}
+          />
+          <label htmlFor="dateTime">
+            Deadline Date and Time{" "}
             <input
-              type="text"
-              placeholder="Add items...."
-              value={inputData}
-              required
-              onChange={(event) => setInputData(event.target.value)}
+              id="dateTime"
+              name="dateTime"
+              type="datetime-local"
+              format="dd/mm/yyyy h:mm a"
+              value={dateTime}
+              onChange={(event) => setDateTime(event.target.value)}
             />
-            <label htmlFor="dateTime">
-              Deadline Date and Time{" "}
-              <input
-                id="dateTime"
-                name="dateTime"
-                type="datetime-local"
-                format="dd/mm/yyyy h:mm a"
-                value={dateTime}
-                onChange={(event) => setDateTime(event.target.value)}
-              />
-            </label>
-          </form>
-          <div className="showItems">
-            <button
-              className="btn effect04"
-              data-sm-link-text="Add List"
-              onClick={() =>
-                dispatch(
-                  addTodo(inputData, dateTime, checked),
-                  setInputData(""),
-                  setDateTime(""),
-                  onClose(false)
-                )
-              }
-              disabled={!inputData}
-            >
-              <span>Add List</span>
-            </button>
-          </div>
-        </Box>
-      </Modal>
-    </div>
+          </label>
+        </form>
+        <div className="showItems addList-btn">
+          <button
+            className="btn effect04 "
+            data-sm-link-text="Add List"
+            onClick={() =>
+              dispatch(
+                addTodo(inputData, dateTime, checked),
+                setInputData(""),
+                setDateTime(""),
+                onClose(false)
+              )
+            }
+            disabled={!inputData}
+          >
+            <span>Add List</span>
+          </button>
+        </div>
+      </Box>
+    </Modal>
+    // </div>
   );
 };
 
